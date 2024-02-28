@@ -14,4 +14,4 @@ function palindrome($phrase) {
   }
   return true;
 }
-echo palindrome($charactersToLowerCaseOnly) ? "true" : "false";
+echo palindrome($charactersToLowerCaseOnly) ? "La phrase est palindrôme" : "La phrase n'est pas palindrôme";
