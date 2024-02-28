@@ -4,7 +4,6 @@
   </b></p>
 
 <?php
-;
 
 $dateBorn = new DateTime("1995-07-03");
 $dateNow = new DateTime();
