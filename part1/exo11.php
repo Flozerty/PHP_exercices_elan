@@ -1,4 +1,4 @@
-<h1>Exercice 6</h1>
+<h1>Exercice 11</h1>
 <p><b>
     Initialiser un tableau de x marques de voitures. Ecrire un algorithme permettant de parcourir ce
     tableau et d’en afficher le contenu (une marque de voiture par ligne). Il est également demandé
