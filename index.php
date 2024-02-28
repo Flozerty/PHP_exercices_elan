@@ -72,8 +72,6 @@ $totalTTC2 = $nbArticles * $prixHT * (1 + $tauxTVA);
 echo "Le total TTC est de $totalTTC €<br>";
 
 $texte = "Texte";
-$calcul = $texte - 5;
-echo $calcul."<br>";
 
 // Renvoie le type de la variable spécifiée en paramètre
 echo gettype($tableau1);
@@ -317,5 +315,3 @@ function repeterMot(string $mot, int $nbRepetitions, string $separateur) {
 }
 
 echo str_repeat("Bidule", 10);
-
-
