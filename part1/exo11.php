@@ -8,7 +8,7 @@
 <?php 
 $tableau = ["Peugeot", "Renault", "BMW", "Mercedes"];
 
-function afficher($table) {
+function afficher(array $table) {
 
   echo"Il y a ".count($table)." marques de voitures dans le tableau :<br>";
   echo"<ul>";
