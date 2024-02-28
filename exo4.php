@@ -8,7 +8,7 @@ $charactersToLowerCaseOnly = strtolower(str_replace(" ", "", $phrase));
 function palindrome($phrase) {
 
   for( $i = 0 ; $i < strlen($phrase) / 2; $i++) {
-    if ($phrase[$i] != $phrase[strlen($phrase) - $i]) {
+    if ($phrase[$i] != $phrase[strlen($phrase) - $i -1]) {
       return false;
     }
   }
