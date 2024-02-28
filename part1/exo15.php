@@ -10,19 +10,19 @@
 <?php
 
 class Person {
-  public $lastName;
-  public $firstName;
-  public $dateBorn;
+  public $_lastName;
+  public $_firstName;
+  public $_dateBorn;
   
   public function __construct($lastName, $firstName, $dateBorn) {
-    $this->lastName = $lastName;
-    $this->firstName = $firstName;
-    $this->dateBorn = new DateTime($dateBorn);
+    $this->_lastName = $lastName;
+    $this->_firstName = $firstName;
+    $this->_dateBorn = new DateTime($dateBorn);
   }
 
   public function age() {
     $dateNow = new DateTime();
-    $diff = $this->dateBorn->diff($dateNow);
+    $diff = $this->_dateBorn->diff($dateNow);
     return $diff->y;
   }
 }
@@ -33,5 +33,5 @@ $p2 = new Person("duchemin", "alice", "1985-01-17");
 $persons = [$p1, $p2];
 
 foreach ($persons as $person) {
-  echo ucwords($person->firstName)." ".strtoupper($person->lastName)." a ". $person->age() ." ans.<br>";
+  echo ucwords($person->_firstName)." ".strtoupper($person->_lastName)." a ". $person->age() ." ans.<br>";
 }
