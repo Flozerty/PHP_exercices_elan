@@ -14,9 +14,9 @@ $people = [
 ];
 
 $lang = [
-  "FRA"=> $greet = "Salut",
-  "ESP"=> $greet = "Hola",
-  "ENG" => $greet = "Hello",
+  "FRA"=> "Salut",
+  "ESP"=> "Hola",
+  "ENG" => "Hello",
 ];
 
 ksort($people);
@@ -28,6 +28,6 @@ foreach ($people as $name => $nat) {
     echo $lang[$nat]." ".$name."<br>";
     
   } else {
-    echo "langue non prise en charge. <br>";
+    echo "langue non prise en charge $name. <br>";
   }
 }
