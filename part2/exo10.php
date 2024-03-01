@@ -88,7 +88,7 @@ function afficherRadio($sexRadio) {
 
 function formationsListe($formations) {
   $result = "<select name='choice' id='formations'>";
-  $result .= "<optgroup label='--Choose a formation--'>";
+  $result .= "<optgroup label='--Choisissez une formation--'>";
 
   foreach ($formations as $formation) {
     $result .= "<option value='$formation'>$formation</option>";
@@ -110,3 +110,5 @@ function afficherForm($nomsInput, $sexRadio, $formations) {
 };
 
 echo afficherForm($nomsInput, $sexRadio, $formations);
+
+?>
