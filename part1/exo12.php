@@ -6,19 +6,28 @@
   </b></p>
 
 <?php
-$table = [
+$people = [
   "Mickaël" => "FRA",
   "Virgile" => "ESP",
   "Marie-Claire" => "ENG",
+  "Flo" => "szerty",
 ];
 
-ksort($table);
+$lang = [
+  "FRA"=> $greet = "Salut",
+  "ESP"=> $greet = "Hola",
+  "ENG" => $greet = "Hello",
+];
 
-foreach ($table as $name => $nat) {
-  switch ($nat) {
-    case "FRA": echo"Salut "; break;
-    case "ESP": echo"Hola "; break;
-    default: echo"Hello ";
+ksort($people);
+
+foreach ($people as $name => $nat) {
+  
+  if (array_key_exists($nat, $lang)) {
+    
+    echo $lang[$nat]." ".$name."<br>";
+    
+  } else {
+    echo "langue non prise en charge. <br>";
   }
-  echo $name."<br>";
 }

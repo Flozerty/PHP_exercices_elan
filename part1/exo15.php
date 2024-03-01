@@ -10,9 +10,9 @@
 <?php
 
 class Person {
-  public string $_lastName;
-  public string $_firstName;
-  public DateTime $_dateBorn;
+  private string $lastName;
+  private string $firstName;
+  private DateTime $dateBorn;
   
   public function __construct(
     
@@ -20,25 +20,59 @@ class Person {
     string $firstName,
     string $dateBorn,
     ) {
-    $this->_lastName = $lastName;
-    $this->_firstName = $firstName;
-    $this->_dateBorn = new DateTime($dateBorn);
+    $this->lastName = $lastName;
+    $this->firstName = $firstName;
+    $this->dateBorn = new DateTime($dateBorn);
   }
 
-  public function age() {
+  private function age() {
     $dateNow = new DateTime();
-    $diff = $this->_dateBorn->diff($dateNow);
+    $diff = $this->dateBorn->diff($dateNow);
     return $diff->y;
   }
-}
 
+  public function getDateBorn()
+  {
+    return $this->dateBorn;
+  }
+
+  public function setDateBorn($dateBorn)
+  {
+    $this->dateBorn = $dateBorn;
+  }
+
+  public function getLastName()
+  {
+    return $this->lastName;
+  }
+
+  public function setLastName($lastName)
+  {
+    $this->lastName = $lastName;
+  }
+
+  public function getFirstName()
+  {
+    return $this->firstName;
+  }
+
+  public function setFirstName($firstName)
+  {
+    $this->firstName = $firstName;
+  }
+
+  public function __toString() {
+    return $this->lastName ." ". $this->firstName ." , a ".$this->age()." ans.";
+  }
+}
+  
 $p1 = new Person("dupont", "michel", "1980-02-19");
 $p2 = new Person("duchemin", "alice", "1985-01-17");
 
 $persons = [$p1, $p2];
 
+
+
 foreach ($persons as $person) {
-  echo
-  ucwords($person->_firstName)." ".strtoupper($person->_lastName)
-  ." a ". $person->age() ." ans.<br>";
+  echo $person."<br>";
 }
