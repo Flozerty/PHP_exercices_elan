@@ -10,11 +10,16 @@
 <?php
 
 class Person {
-  public $_lastName;
-  public $_firstName;
-  public $_dateBorn;
+  public string $_lastName;
+  public string $_firstName;
+  public DateTime $_dateBorn;
   
-  public function __construct($lastName, $firstName, $dateBorn) {
+  public function __construct(
+    
+    string $lastName,
+    string $firstName,
+    string $dateBorn,
+    ) {
     $this->_lastName = $lastName;
     $this->_firstName = $firstName;
     $this->_dateBorn = new DateTime($dateBorn);
@@ -33,5 +38,7 @@ $p2 = new Person("duchemin", "alice", "1985-01-17");
 $persons = [$p1, $p2];
 
 foreach ($persons as $person) {
-  echo ucwords($person->_firstName)." ".strtoupper($person->_lastName)." a ". $person->age() ." ans.<br>";
+  echo
+  ucwords($person->_firstName)." ".strtoupper($person->_lastName)
+  ." a ". $person->age() ." ans.<br>";
 }
