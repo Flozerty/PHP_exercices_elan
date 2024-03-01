@@ -1,4 +1,4 @@
-<h1>Exercice 1</h1>
+<h1>Exercice 2</h1>
 <b>
   <p>Soit le tableau suivant : <br>
     $capitales = array ("France"=>"Paris","Allemagne"=>"Berlin","USA"=>"Washington","Italie"=>"Rome"); <br>
