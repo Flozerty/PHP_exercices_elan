@@ -8,15 +8,25 @@
 </b>
 
 <?php
+
 $nomsInput = [
-  "Nom",
- "Prénom",
-  "Ville"
+  "Nom" => "name",
+ "Prénom" => "firstname",
+  "Ville" => "street"
 ];
-afficherInput($nomsInput);
+
+echo afficherInput($nomsInput);
 
 function afficherInput($nomsInput) {
-  foreach ($nomsInput as $input) {
-    echo $input." :<br>";
+
+  $result = "<form>";
+
+  foreach ($nomsInput as $input => $sort) {
+    
+    $result .= "<label for=$sort>$input :</label>
+    <input type='text' id='$sort'><br>";
   }
+  
+  $result .= "</form>";
+  return $result;
 }
