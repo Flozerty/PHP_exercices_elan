@@ -5,14 +5,14 @@
   </b></p>
 
 <?php 
-$age = 32;
+$age = 24;
 $sexeH = false;
 
 
 (($sexeH && $age > 20) || (!$sexeH&& $age >= 18 && $age <= 35)) ?
-$imposable = true : $imposable = false;
+$imposable = "est imposable" : $imposable = "n'est pas imposable";
 
 echo
   "Age : $age<br>
   Sexe : ".($sexeH ? "Homme" : "Femme")."<br>
-  La personne ".($imposable ? "est imposable" : "n'est pas imposable");
+  La personne ".$imposable;
