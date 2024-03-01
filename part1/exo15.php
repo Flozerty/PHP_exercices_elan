@@ -25,13 +25,13 @@ class Person {
     $this->dateBorn = new DateTime($dateBorn);
   }
 
-  private function age() {
+  private function age(): int {
     $dateNow = new DateTime();
     $diff = $this->dateBorn->diff($dateNow);
     return $diff->y;
   }
 
-  public function getDateBorn()
+  public function getDateBorn(): DateTime
   {
     return $this->dateBorn;
   }
@@ -41,7 +41,7 @@ class Person {
     $this->dateBorn = $dateBorn;
   }
 
-  public function getLastName()
+  public function getLastName(): string
   {
     return $this->lastName;
   }
@@ -51,7 +51,7 @@ class Person {
     $this->lastName = $lastName;
   }
 
-  public function getFirstName()
+  public function getFirstName(): string
   {
     return $this->firstName;
   }
