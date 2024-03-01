@@ -10,5 +10,7 @@
 $texte = "Mon texte en paramètre";
 
 function convertirMajRouge($texte) {
- strtoupper($texte);
+  return '<span style ="color:red">'.mb_strtoupper($texte).'</span>';
 }
+
+echo convertirMajRouge($texte);
