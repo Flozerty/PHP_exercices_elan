@@ -5,12 +5,18 @@
     Vous devrez appeler la fonction comme suit : convertirMajRouge($texte) ;</p>
 </b>
 
+<style>
+span {
+  color: red;
+}
+</style>
+
 <?php
 
 $texte = "Mon texte en paramètre";
 
 function convertirMajRouge($texte) {
-  return '<span style ="color:red">'.mb_strtoupper($texte).'</span>';
+  return '<span>'.mb_strtoupper($texte).'</span>';
 }
 
 echo convertirMajRouge($texte);

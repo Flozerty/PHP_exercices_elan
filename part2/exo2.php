@@ -8,6 +8,14 @@
     Vous devrez appeler la fonction comme suit : afficherTableHTML($capitales)</p>
 </b>
 
+<style>
+table,
+th,
+td {
+  border: 1px solid black
+}
+</style>
+
 <?php
 
 $capitales = [
@@ -20,16 +28,16 @@ $capitales = [
 function afficherTableHTML($capitales) {
   ksort($capitales);
 
-  echo "<table style='border: 1px solid black;'>
+  echo "<table>
   <tr>
-      <th style='border: 1px solid black'>Pays</th>
-      <th style='border: 1px solid black'>Capitales</th>
+      <th>Pays</th>
+      <th>Capitales</th>
     </tr>";
   foreach($capitales as $pays => $capitale){
     echo "
     <tr>
-      <td style='border: 1px solid black'>".mb_strtoupper($pays)."</td>
-      <td style='border: 1px solid black'>".$capitale."</td>
+      <td>".mb_strtoupper($pays)."</td>
+      <td>".$capitale."</td>
     </tr>";
   };
   echo "</table>";
