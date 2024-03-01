@@ -13,9 +13,8 @@ function genererCheckbox($elements) {
   $result = "";
 
   foreach ($elements as $element) {
-    $result .= "<input type='checkbox'>";
+    $result .= "<input id='$element' name='choices' type='checkbox'>";
     $result .= "<label for='$element'>$element</label><br>";
   }
-  $result .= "</checkbox>";
   return $result;
 }
