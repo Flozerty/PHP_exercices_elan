@@ -14,9 +14,9 @@ $age = 8;
 if( $age >= 6 && $age <= 17 && gettype($age) == 'integer' ) {
   echo"L'enfant est de la catégorie <b>";
   switch(true) {
-    case $age >= 6 && $age <= 7 : echo "poussin"; break;
-    case $age >= 8 && $age <= 9 : echo "pupille"; break;
-    case $age >= 10 && $age <= 11 : echo "minime"; break;
+    case $age <= 7 : echo "poussin"; break;
+    case $age <= 9 : echo "pupille"; break;
+    case $age <= 11 : echo "minime"; break;
     default: echo "cadet";
   }
   echo"</b>.";
