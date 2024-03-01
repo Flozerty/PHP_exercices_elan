@@ -65,13 +65,11 @@ class Person {
     return $this->lastName ." ". $this->firstName ." , a ".$this->age()." ans.";
   }
 }
-  
-$p1 = new Person("dupont", "michel", "1980-02-19");
-$p2 = new Person("duchemin", "alice", "1985-01-17");
 
-$persons = [$p1, $p2];
-
-
+$persons = [
+  $p1 = new Person("dupont", "michel", "1980-02-19"),
+  $p2 = new Person("duchemin", "alice", "1985-01-17"),
+];
 
 foreach ($persons as $person) {
   echo $person."<br>";
