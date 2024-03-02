@@ -21,6 +21,27 @@
 span {
   color: red;
 }
+
+main {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#statusBoard {
+  background-color: rgb(230, 230, 230);
+  width: 30%;
+}
+
+#vehiclesBoard {
+  background-color: rgb(230, 230, 230);
+  display: flex;
+  justify-content: space-around;
+  width: 60%;
+}
+
+.vInfo p {
+  margin: 5px;
+}
 </style>
 
 <?php
@@ -109,16 +130,45 @@ class Voiture {
 
   public function __toString() {
     
-    $resultat = "Infos véhicule<br>";
+    $resultat = "
+      <p>Nom et modèle du véhicule : $this->marque $this->model</p>
+      <p>Nombre de portes : $this->nbportes</p>
+      <p>Le véhicule $this->marque est ".($this->power ? "démarré" : "à l'arrêt")."</p>
+      <p>Sa vitesse actuelle est de $this->vitesseActuelle km/h</p>";
     return$resultat;
   }
 }
-
+                            ///////////////////////////////////
+                            ///////////////////////////////////
+                            ///////////////////////////////////
 $vehicules = [
 $v1 = new Voiture("peugeot", "408", 5),
 $v2 = new Voiture("citroën", "C4", 3),
 ];
 
-foreach($vehicules as $v) {
-  echo $v;
+function displayVehicles($vehicules) {
+  $i=1;
+  $result="<div id=vehiclesBoard>";
+  foreach($vehicules as $v) {
+
+    $result .= 
+    "<div class='vInfo'>
+      Infos véhicule $i :<br>
+      ************************<br>
+      $v
+    </div>";
+
+    $i++;
+  }
+  $result .= "</div>";
+  return $result;
 }
+
+function displayBoard() {
+  return "
+  <div id='statusBoard'>
+    Board
+  </div>";
+}
+
+echo "<main>".displayBoard().displayVehicles($vehicules)."</main>";
