@@ -18,6 +18,10 @@
 </b>
 
 <style>
+* {
+  padding: 2px 5px;
+}
+
 span {
   color: red;
 }
@@ -27,25 +31,36 @@ main {
   justify-content: space-evenly;
 }
 
-#statusBoard {
+#board {
   background-color: rgb(230, 230, 230);
-  width: 30%;
 }
 
 #vehiclesBoard {
   background-color: rgb(230, 230, 230);
   display: flex;
   justify-content: space-around;
-  width: 60%;
+  height: fit-content;
 }
 
 .vInfo p {
   margin: 5px;
 }
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  padding-bottom: 5px;
+}
 </style>
 
 <?php
-
+                            ///////////////////////////////////
+                            /////////////// PHP ///////////////
+                            ///////////////////////////////////
 class Voiture {
   private string $marque;
   private string $model;
@@ -112,38 +127,81 @@ class Voiture {
                             ///////////////////////////////////
 
   public function demarrer(){
-    $this->setPower(true);
+    if($this->getPower()) {
+      return "Le véhicule $this->marque $this->model est déjà démarré";
+    }else{
+      $this->setPower(true);
+      return "Le véhicule $this->marque $this->model démarre";
+    };
+    
   }
 
   public function stopper(){
-    $this->setVitesseActuelle(0);
-    $this->setPower(false);
+    if($this->getPower()) {
+
+      $this->setVitesseActuelle(0);
+      $this->setPower(false);
+      return "Le véhicule $this->marque $this->model s'arrête";
+
+    }else{
+      return "Le véhicule $this->marque $this->model est déjà à l'arrêt";
+    }
   }
 
   public function accelerer($speed){
-    $this->vitesseActuelle += $speed;
+    if($this->getPower()) {
+      $this->vitesseActuelle += $speed;
+      return"Le véhicule $this->marque $this->model accélère de $speed km/h<br>";
+      
+    }else{
+      return "Le véhicule $this->marque $this->model veut accélérer de $speed km/h<br>".
+      "Pour accélérer, il faut démarrer le véhicule $this->marque $this->model!";
+    }
   }
 
-  // public function ralentir($speed){
-  //   $this->vitesseActuelle -= $speed;
-  // }
+  public function ralentir($speed){
+    if($this->getPower()) {
+      if ($this->vitesseActuelle < $speed) {
+        // ne peut pas ralentir plus
+        $this->setVitesseActuelle(0);
+        return"
+        Le véhicule $this->marque $this->model veut ralentir de $speed km/h.<br>
+        Il atteint 0 km/h et est maintenant à l'arrêt.";
+      } else {
+        // ralentit normalement
+        $this->vitesseActuelle -= $speed;
+        return "Le véhicule $this->marque $this->model ralentit de $speed km/h";
+      }
+    }else{
+      // véhicule à l'arrêt
+      return "Le véhicule $this->marque $this->model veut ralentir de $speed km/h<br>".
+      "Le véhicule $this->marque $this->model ne peut pas ralentir à l'arrêt!";
+    }
+  }
 
   public function __toString() {
     
-    $resultat = "
-      <p>Nom et modèle du véhicule : $this->marque $this->model</p>
+    return "
+      <p>Nom et modèle du véhicule :<br> $this->marque $this->model</p>
       <p>Nombre de portes : $this->nbportes</p>
       <p>Le véhicule $this->marque est ".($this->power ? "démarré" : "à l'arrêt")."</p>
       <p>Sa vitesse actuelle est de $this->vitesseActuelle km/h</p>";
-    return$resultat;
   }
 }
                             ///////////////////////////////////
-                            ///////////////////////////////////
+                            /////////// VARIABLES /////////////
                             ///////////////////////////////////
 $vehicules = [
 $v1 = new Voiture("peugeot", "408", 5),
 $v2 = new Voiture("citroën", "C4", 3),
+];
+
+$instructions = [
+  $v1->demarrer(),
+  $v1->accelerer(50),
+  $v2->demarrer(),
+  $v2->stopper(),
+  $v2->accelerer(20),
 ];
 
 function displayVehicles($vehicules) {
@@ -164,11 +222,18 @@ function displayVehicles($vehicules) {
   return $result;
 }
 
-function displayBoard() {
-  return "
-  <div id='statusBoard'>
-    Board
-  </div>";
+function displayBoard($instructions, $vehicules) {
+  $result = "<div id='board'><ul>";
+  
+  foreach($instructions as $instruction) {
+    $result .= "<li>$instruction</li>";
+  }
+
+  foreach($vehicules as $v) {
+    $result .= "La vitesse du véhicule ".$v->getmarque()." ".$v->getmodel()." est de ".$v->getvitesseActuelle()." km/h<br>";
+  }
+   $result .= "</ul></div>";
+  return $result;
 }
 
-echo "<main>".displayBoard().displayVehicles($vehicules)."</main>";
+echo "<main>".displayBoard($instructions, $vehicules).displayVehicles($vehicules)."</main>";
