@@ -13,9 +13,20 @@
 $timestamp = strtotime('2018-02-23');
 
 $formatter = new IntlDateFormatter(
+  //LOCALE
     'fr_FR', 
-    IntlDateFormatter::FULL, 
-    IntlDateFormatter::NONE
+
+// DATE : 
+// FULL(D dd MMMM yyyy) 
+// / LONG(dd MMMM yyyy) 
+// / MEDIUM(dd MM yyyy) 
+// / SHORT(dd/MM/yyyy)
+
+    IntlDateFormatter::SHORT, 
+
+// HEURE : 
+
+    IntlDateFormatter::NONE,
 );
 $date_fr = $formatter->format($timestamp);
 
