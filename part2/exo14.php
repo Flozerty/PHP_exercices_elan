@@ -58,6 +58,7 @@ class Voiture {
     return "$this->marque $this->modele";
   }
 }
+
                         /////// CLASS VOITURE ELEC ///////
 
 class VoitureElec extends Voiture {
