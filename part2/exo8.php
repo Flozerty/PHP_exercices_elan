@@ -12,7 +12,9 @@ $url = "http://my.mobirise.com/data/userpic/764.jpg";
 echo repeterImage($url, 4);
 
 function repeterImage($url, $nb) {
+  $result = "";
   for ($i = 0; $i < $nb; $i++) {
-    echo "<img src='$url' alt='un chien machouille une tongue img n°".($i+1)."'>";
+    $result .= "<img src='$url' alt='un chien machouille une tongue img n°".($i+1)."'>";
   }
+  return $result;
 }
