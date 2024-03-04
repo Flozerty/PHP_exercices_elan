@@ -59,7 +59,7 @@ main {
 }
 
 .vInfo {
-  border: 2px dashed black;
+  border: 1px dotted black;
   width: 45%;
 }
 
