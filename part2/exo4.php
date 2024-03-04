@@ -30,11 +30,13 @@ function afficherTableHTML($capitales) {
 
   $result = "<table>
   <thead>
+    <tr> 
       <th>Pays</th>
       <th>Capitales</th>
       <th>Lien wiki</th>
-    </thead>
-    <tbody>";
+    </tr>
+  </thead>
+  <tbody>";
   foreach($capitales as $pays => $capitale){
     $result .= "
     <tr>
