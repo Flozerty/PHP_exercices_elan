@@ -54,7 +54,7 @@ class Voiture {
   {
     $this->marque = $marque;
   }
-  public function getInfos() {
+  public function __toString() {
     return "$this->marque $this->modele";
   }
 }
@@ -83,13 +83,13 @@ class VoitureElec extends Voiture {
     $this->autonomie = $autonomie;
   }
 
-  public function getInfos() {
-    return parent::getInfos()." ".$this->autonomie;
+  public function __toString() {
+    return parent::__toString()." ".$this->autonomie;
   }
 }
 
 $v1 = new Voiture("Peugeot","408");
 $ve1 = new VoitureElec("BMW","I3",100);
 
-echo $v1->getInfos()."<br>";
-echo $ve1->getInfos()."<br>";
+echo $v1."<br>";
+echo $ve1."<br>";
