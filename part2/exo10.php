@@ -42,10 +42,10 @@ button {
 <?php
 
 $nomsInput = [
-  "Nom" => "lastname",
- "Prénom" => "firstname",
-  "Ville" => "street",
-  "e-mail"=> "email",
+  "Nom" => ["lastname", "text"],
+ "Prénom" => ["firstname", "text"],
+  "Ville" => ["street", "text"],
+  "e-mail"=> ["email", "email"],
 ];
 
 $sexRadio = ["Masculin", "Féminin", "Autre"];
@@ -65,8 +65,8 @@ function InfosUser($nomsInput) {
 
   foreach ($nomsInput as $input => $sort) {
     
-    $result .= "<li><label for=$sort>$input :</label><br>
-    <input type='$sort' id='$sort'></li>";
+    $result .= "<li><label for=$sort[0]>$input :</label><br>
+    <input type='$sort[1]' id='$sort[0]'></li>";
   }
   
   $result .= " </ul></fieldset>";
