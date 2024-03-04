@@ -156,10 +156,10 @@ class Voiture {
 
   public function demarrer(){
     if($this->getPower()) {
-      return "Le véhicule $this->marque $this->model est déjà démarré";
+      return "Le véhicule $this est déjà démarré";
     }else{
       $this->setPower(true);
-      return "Le véhicule $this->marque $this->model démarre";
+      return "Le véhicule $this démarre";
     };
     
   }
@@ -212,13 +212,17 @@ class Voiture {
     }
   }
 
-  public function __toString() {
+  public function afficherInfos() {
     
     return "
       <p>Nom et modèle du véhicule :<br> $this->marque $this->model</p>
       <p>Nombre de portes : $this->nbportes</p>
       <p>Le véhicule $this->marque est ".($this->power ? "démarré" : "éteint")."</p>
       <p>Sa vitesse actuelle est de $this->vitesseActuelle km/h</p>";
+  }
+
+  public function __toString(){
+    return "$this->marque $this->model";
   }
 }
                             ///////////////////////////////////
@@ -260,8 +264,8 @@ function displayVehicles($vehicules) {
     $result .= 
     "<div class='vInfo'>
       Infos véhicule $i :<br>
-      ************************<br>
-      $v
+      ************************<br>".
+      $v->afficherInfos()."
     </div>";
 
     $i++;

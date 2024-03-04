@@ -6,15 +6,20 @@
 
 <?php
 
-$elements = ["choix 1", "choix 2", "choix 3"];
+$elements = [
+  "choix 1" => true,
+  "choix 2" => false,
+  "choix 3" => true,
+];
 echo genererCheckbox($elements);
 
 function genererCheckbox($elements) {
-  $result = "";
+  $result = "<form>";
 
-  foreach ($elements as $element) {
-    $result .= "<input id='$element' name='choices' type='checkbox'>";
+  foreach ($elements as $element => $checked) {
+    $result .= "<input id='$element' name='choices' type='checkbox' ".
+    ($checked ? "checked>" : ">");
     $result .= "<label for='$element'>$element</label><br>";
   }
-  return $result;
+  return $result."</form>";
 }

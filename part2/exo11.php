@@ -12,7 +12,11 @@
 
 $timestamp = strtotime('2018-02-23');
 
-$formatter = new IntlDateFormatter('fr_FR', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
+$formatter = new IntlDateFormatter(
+    'fr_FR', 
+    IntlDateFormatter::FULL, 
+    IntlDateFormatter::NONE
+);
 $date_fr = $formatter->format($timestamp);
 
 echo $date_fr;

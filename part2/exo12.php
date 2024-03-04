@@ -13,22 +13,22 @@
 $tableauValeurs=array(true,"texte",10,25.369,array("valeur1","valeur2"));
 
 foreach($tableauValeurs as $value) {
-var_dump($value);
-echo"<br>";
+  var_dump($value);
+  echo"<br>";
 }
 
 echo"<br>";
 
 for($i=0; $i<count($tableauValeurs); $i++) {
-var_dump($tableauValeurs[$i]);
-echo"<br>";
+  var_dump($tableauValeurs[$i]);
+  echo"<br>";
 }
 
 echo"<br>";
 
 $i=0;
 while ($i<count($tableauValeurs)) {
-var_dump($tableauValeurs[$i]);
-echo"<br>";
-$i++;
+  var_dump($tableauValeurs[$i]);
+  echo"<br>";
+  $i++;
 }
