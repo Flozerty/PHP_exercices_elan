@@ -25,8 +25,6 @@ $books = [
   $assassinRoyal6 = new Livre("L'assassin royal Tome 6 La reine solitaire", 546, 1997, 8.7, $robinHobb) ,
 ];
 
-echo $ca."<br>";
-echo $stephenKing."<br>";
 
 
 function afficherBibliographie($auteurs, $books){
