@@ -54,17 +54,17 @@ class Compte {
   ///////////////////////////////////////////
 
   public function crediter(float $number): string {
-    $this->setSolde($this->solde + $number);
+    $this->solde += $number;
     return "crédit de $number $this->devise effectué sur le $this. Nouveau solde : $this->solde $this->devise<br>";
   }
   public function debiter(float $number): string {
-    $this->setSolde($this->solde - $number);
+    $this->solde -= $number;
     return "débit de $number $this->devise effectué sur le $this. Nouveau solde : $this->solde $this->devise<br>";
   }
 
   public function virement(float $number, Compte $compte): string {
-    $this->setSolde($this->solde - $number);
-    $compte->setSolde($compte->getSolde() + $number);
+    $this->debiter($number);
+    $compte->crediter($number);
 
     return "Virement de $number effectué du $this au $compte.<br>
     Nouveau solde du $this : ".$this->getSolde()."<br>Nouveau solde du $compte : ".$compte->getSolde();

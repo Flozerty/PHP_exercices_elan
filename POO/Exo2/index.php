@@ -35,7 +35,7 @@ echo $ccFloris->crediter(100);
 echo $ccMaurice->debiter(100.55);
 echo "<============================================================================><br>";
 
-echo $ccGilbert->virement(1500.32, $peFloris);
+echo $ccGilbert->virement(1500.45, $peFloris);
 
 echo $floris->getInfos();
 echo $gilbert->getInfos();
