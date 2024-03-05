@@ -3,7 +3,7 @@
 class Livre {
   private string $title;
   private int $pages;
-  private int $date;
+  private int $annee;
   private float $price;
   private Auteur $auteur;
   
@@ -16,12 +16,13 @@ class Livre {
     ) {
     $this->title = $title;
     $this->pages = $pages;
-    $this->date = $date;
+    $this->annee = $date;
     $this->price = $price;
     $this->auteur = $auteur;
+    $this->auteur->addLivre($this);
     }
 //  GETTERS & SETTERS
-  public function getTitle()
+  public function getTitle() : string
   {
     return $this->title;
   }
@@ -29,7 +30,7 @@ class Livre {
   {
     $this->title = $title;
   }
-  public function getPages()
+  public function getPages() : int
   {
     return $this->pages;
   }
@@ -37,15 +38,15 @@ class Livre {
   {
     $this->pages = $pages;
   }
-  public function getDate()
+  public function getAnnee() : int
   {
-    return $this->date;
+    return $this->annee;
   }
-  public function setDate($date)
+  public function setAnnee($annee)
   {
-    $this->date = $date;
+    $this->annee = $annee;
   }
-  public function getPrice()
+  public function getPrice() : float
   {
     return $this->price;
   }
@@ -53,7 +54,7 @@ class Livre {
   {
     $this->price = $price;
   }
-  public function getAuteur()
+  public function getAuteur() : Auteur
   {
     return $this->auteur;
   }
@@ -61,11 +62,9 @@ class Livre {
   {
     $this->auteur = $auteur;
   }
-// 
+///////////////////////////////////////////
   public function __toString() {
-    return "$this->title ($this->date) : $this->pages pages /
-    $this->price €";
-  }
-
-    
+    return "$this->title ($this->annee) : $this->pages pages /
+    $this->price €<br>";
+  }    
 }

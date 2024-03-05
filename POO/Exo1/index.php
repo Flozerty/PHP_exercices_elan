@@ -4,9 +4,6 @@ spl_autoload_register(function ($class_name) {
   require 'classes/'. $class_name .'.php';}
 );
 
-
-
-
 $auteurs = [
   $stephenKing = new Auteur("Stephen", "King"),
   $robinHobb = new Auteur("Robin","Hobb"),
@@ -25,21 +22,6 @@ $books = [
   $assassinRoyal6 = new Livre("L'assassin royal Tome 6 La reine solitaire", 546, 1997, 8.7, $robinHobb) ,
 ];
 
-
-
-function afficherBibliographie($auteurs, $books){
-  $result = "";
-  
-  foreach ($auteurs as $auteur) {
-    $result  .= "<h1>Les livres de $auteur :</h1>";
-    
-    foreach ($books as $book) {
-      if ($book->getAuteur() === $auteur) {
-        $result .= "$book<br>";
-      }
-    }
-  }
-  return $result;
+foreach($auteurs as $auteur) {
+  echo $auteur->afficherBibliographie();
 }
-
-echo afficherBibliographie($auteurs, $books);
