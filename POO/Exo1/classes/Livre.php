@@ -4,14 +4,14 @@ class Livre {
   private string $title;
   private int $pages;
   private int $date;
-  private $price;
+  private float $price;
   private Auteur $auteur;
   
   public function __construct(
     string $title,
     int $pages,
     int $date,
-    int $price,
+    float $price,
     Auteur $auteur
     ) {
     $this->title = $title;
