@@ -9,12 +9,12 @@ class Titulaire {
   public function __construct(
     string $nom,
     string $prenom,
-    DateTime $dateNaissance,
+    string $dateNaissance, // conversion de string à DateTime dans le constructeur
     string $ville
     ) {
       $this->nom = $nom;
       $this->prenom = $prenom;
-      $this->dateNaissance = $dateNaissance;
+      $this->dateNaissance = new DateTime($dateNaissance);
       $this->ville = $ville;
       $this->comptes = [];
     }
@@ -58,5 +58,32 @@ class Titulaire {
   public function setNom(string $nom)
   {
     $this->nom = $nom;
+  }
+/////////////////////////////////////////////////
+  public function addCompte(Compte $compte) {
+    $this->comptes[] = $compte;
+  }
+
+  public function getAge() : int {
+    // On retourne l'année de différence entre dateNaissance et Ajd
+    $dateNow = new DateTime();
+    $diffAge = $this->getDateNaissance()->diff($dateNow);
+    return $diffAge->y; 
+  }
+
+  public function getInfos() {
+     $result ="<div><h1>$this</h1>
+     localisation :".$this->getVille()."<br> 
+     âge : ".$this->getAge()." ans<br>
+     Comptes existants :<br><ul>";
+
+    foreach($this->comptes as $compte){
+      $result .= "<li>$compte</li>";
+    }
+    return "$result </ul></div>";
+  }
+
+  public function __toString() {
+    return ucfirst($this->getNom())." ".ucfirst($this->getPrenom());
   }
 }

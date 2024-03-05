@@ -8,13 +8,15 @@ class Compte {
 
   public function __construct(
     string $libelle,
+    float $solde,
     string $devise,
     Titulaire $titulaire,
   ) {
     $this->libelle = $libelle;
-    $this->solde = 0;
+    $this->solde = $solde;
     $this->devise = $devise;
     $this->titulaire = $titulaire;
+    $this->titulaire->addCompte($this);
   }
 //////////////////////////////////////////
   public function getTitulaire() : Titulaire
@@ -50,4 +52,17 @@ class Compte {
     $this->libelle = $libelle;
   }
   ///////////////////////////////////////////
+
+  public function crediter(float $number): string {
+    $this->setSolde($this->solde + $number);
+    return "crédit de $number $this->devise effectué sur le $this->libelle de $this->titulaire. Nouveau solde : $this->solde $this->devise<br>";
+  }
+  public function debiter(float $number) {
+    $this->setSolde($this->solde - $number);
+    return "débit de $number $this->devise effectué sur le $this->libelle de $this->titulaire. Nouveau solde : $this->solde $this->devise<br>";
+  }
+
+  public function __toString() {
+    return "<b>$this->libelle de $this->titulaire.</b> Solde : $this->solde $this->devise<br>";
+  }
 }
