@@ -78,9 +78,11 @@ class Titulaire {
      Comptes existants :<br><ul>";
 
     foreach($this->comptes as $compte){
-      $result .= "<li>$compte</li>";
+      $result .= "<li>".$compte->getInfos()."</li>";
     }
-    return "$result </ul></div>";
+    return "$result </ul></div>
+<============================================================================><br>";
+
   }
 
   public function __toString() {

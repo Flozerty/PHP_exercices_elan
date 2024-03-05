@@ -25,9 +25,18 @@ $comptes = [
   $peGilbert = new Compte("Plan Epargne", 4000, "€", $gilbert),
 ];
 
-echo "<p>$ccFloris</p>";
+echo "<p>".$ccFloris->getInfos()."</p>";
+
 echo $floris->getInfos();
 echo $gilbert->getInfos();
+echo $maurice->getInfos();
 
 echo $ccFloris->crediter(100);
-echo $ccBernard->debiter(100.55);
+echo $ccMaurice->debiter(100.55);
+echo "<============================================================================><br>";
+
+echo $ccGilbert->virement(1500.32, $peFloris);
+
+echo $floris->getInfos();
+echo $gilbert->getInfos();
+echo $maurice->getInfos();
