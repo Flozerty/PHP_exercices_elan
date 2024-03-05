@@ -21,21 +21,21 @@ $books = [
 
 echo $ca."<br>";
 echo $stephenKing."<br>";
+
+
 function afficherBibliographie($auteurs, $books){
   $result = "";
   
   foreach ($auteurs as $auteur) {
     $result  .= "<h1>$auteur</h1>";
+    
     foreach ($books as $book) {
-      $result .= "$book<br>";
-      // if ($book->auteur == $auteur) {
-      //   $result .= "$book<br>";
-      //   echo $book;
-      // }
+      if ($book->getAuteur() === $auteur) {
+        $result .= "$book<br>";
+      }
     }
   }
   return $result;
-  echo $result;
-};
+}
 
 echo afficherBibliographie($auteurs, $books);
