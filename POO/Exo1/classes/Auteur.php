@@ -17,7 +17,7 @@ class Auteur {
   {
     return $this->nom;
   } 
-  public function setNom($nom)
+  public function setNom(string $nom)
   {
     $this->nom = $nom;
   }
@@ -25,7 +25,7 @@ class Auteur {
   {
     return $this->prenom;
   }
-  public function setPrenom($prenom)
+  public function setPrenom(string $prenom)
   {
     $this->prenom = $prenom;
   }
@@ -33,7 +33,7 @@ class Auteur {
   {
     return $this->livres;
   }
-  public function setLivres($livres)
+  public function setLivres(array $livres)
   {
     $this->livres = $livres;
   }

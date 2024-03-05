@@ -26,7 +26,7 @@ class Livre {
   {
     return $this->title;
   }
-  public function setTitle($title)
+  public function setTitle(string $title)
   {
     $this->title = $title;
   }
@@ -34,7 +34,7 @@ class Livre {
   {
     return $this->pages;
   }
-  public function setPages($pages)
+  public function setPages(int $pages)
   {
     $this->pages = $pages;
   }
@@ -42,7 +42,7 @@ class Livre {
   {
     return $this->annee;
   }
-  public function setAnnee($annee)
+  public function setAnnee(int $annee)
   {
     $this->annee = $annee;
   }
@@ -50,7 +50,7 @@ class Livre {
   {
     return $this->price;
   }
-  public function setPrice($price)
+  public function setPrice(float $price)
   {
     $this->price = $price;
   }
@@ -58,7 +58,7 @@ class Livre {
   {
     return $this->auteur;
   }
-  public function setAuteur($auteur)
+  public function setAuteur(AUteur $auteur)
   {
     $this->auteur = $auteur;
   }
