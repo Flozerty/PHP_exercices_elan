@@ -64,7 +64,7 @@ class Livre {
 // 
   public function __toString() {
     return "$this->title ($this->date) : $this->pages pages /
-    $this->price € $this->auteur";
+    $this->price €";
   }
 
     
