@@ -1,0 +1,29 @@
+----------définir modélisation des données :
+
+Structuration des données prenant en compte les relations / associations relatives aux données.
+
+----------définir méthode MERISE :
+
+(Méthode d’Etude et de Réalisation Informatique pour les Systèmes d’Entreprises)
+ensemble de méthodes, représentations, de modélisation.
+
+conceptuel => organisationnel / logique => physique
+ 
+MCD => MLD
+
+
+----------vocabulaire du MCD (modèle conceptuel de données) :
+
+- Entité : exprime une personne / chose / lieu / (une classe). "Ensemble d'informations à traiter"
+--- clé primaire : identifiant /propriété unique de l'entité
+
+
+- Relation : Association relative entre les entités, relation qu'il y a entre elles. (porte bien son nom)
+
+- Cardinalités : relativité entre les entités, précisant le lien et
+la quantité minimale et maximale qu'une entité puisse avoir d'une autre entité.
+
+----------vocabulaire MLD (modèle logique des données) : se déduit du MCD
+-suppression des relations en fonction des cardinalités
+
+- Clé étrangère : valeur récupérée de l'identifiant d'une autre entité.
